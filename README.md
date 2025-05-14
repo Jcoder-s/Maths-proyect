@@ -1,1 +1,1 @@
-[Click]( https://jcoder-s.github.io/Maths-proyect/) para ver la pagina
+[Ver página]( https://jcoder-s.github.io/Maths-proyect/)
