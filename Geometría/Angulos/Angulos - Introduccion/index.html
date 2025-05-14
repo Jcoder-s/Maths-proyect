@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angulos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="principal-section-container">
+    
+        <div class="side-nav-container">
+            <i class="fa-solid fa-arrow-right-arrow-left" onclick="toggleSidebarText()"></i>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-house"></i>
+                        <h2 class="side-nav-icons-text">Inicio</h2>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-book-open"></i>
+                        <h2 class="side-nav-icons-text">Leer</h2>
+                    </li>
+                    <li onclick="deployBoard()">
+                        <i class="fa-solid fa-chalkboard-user"></i> 
+                        <h2 class="side-nav-icons-text">Pizarra</h2>
+                    </li>
+                </ul>
+        </div>
+
+    <main class="principal-container">
+
+        <div class="userTools">
+            <div class="chalkBoard">
+              <i class="fa-solid fa-xmark" onclick="closeBoard()"></i>
+          
+              <canvas id="chalkCanvas"></canvas> <!-- ✅ Aquí solo va el canvas -->
+          
+              <button id="cleanCanvas" onclick="cleanCanvas()">
+                <i class="fa-solid fa-eraser"></i>
+              </button>
+            </div>
+        </div>
+
+          
+          <div class="progress-bar" id="progressBar">
+             <span id="drawProgress"></span>
+          </div>
+          
+        <div class="content correctAnswer">
+            <a href="../Start-geometry-page/index.html"><i class="fa-solid fa-xmark" id="back-to-home-icon"></i></a>
+
+            <div class="feedback-image" style="display:none; text-align:center; margin-top: 20px;">
+                <img id="feedback-img" src="" alt="Feedback" style="max-height: 120px;">
+            </div>
+
+            <!--<div class="go-home-charger">
+                <span class="load-circle"><i class="fa-solid fa-house"></i></span>
+            </div>-->            
+
+            <div class="exercises-container">
+                <div class="container1 welcome activeSection">
+                    <h1>¡Bienvenido! Este es la seccion de angulos en el curso de geometria.</h1>
+                    <p>En esta lección aprenderas acerca de <strong>los angulos</strong>.</p>
+                    <p>¡Vamos a empezar!</p>
+                </div>
+                <div class="container2">
+                    <div class="title">
+                        <h2>¿Qué son los angulos?</h2>
+                    </div>
+                    <p>Se le llama angulo a la union de dos lineas en un punto llamado <strong>vertice</strong>.</p>
+                    <p>La palabra angulo proviene del latin <span>angulus</span> que significa rincon</p>
+                    <div class="example">
+                        <div class="angle">
+                            <div class="top"></div>
+                            <div class="bottom"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container3">
+                    <div class="title">
+                        <p>Los angulos pueden tener diferentes aperturas, desde 1 hasta 360 formando una circunferencia</p>
+                    </div>
+                    <div class="example">
+                        <div class="angle"></div>
+                    </div>
+                    <button class="start">Desplegar</button>
+                </div>
+                <div class="container4">
+                    <div class="title">
+                        <p>Entendiendo lo que es el volumen <br> <strong class="question">¿Cuál de estas dos figuras crees que tiene más volumen?</strong></p>
+                    </div>
+                    <div class="exercise">
+                        <div class="options-container">
+                            <div class="cubo option" data-set="cubo">
+                                <img src="cubo.png" alt="">
+                                <p>h = 10cm</p>
+                            </div>
+                            <div class="cilindro option" data-set="cilindro">
+                                <img src="cilindro.png" alt="">
+                                <p>h = 8cm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container5">
+                </div>
+                <div class="container6">
+                    <div class="congratulations-animation">
+                    </div>
+                    <div class="congratulations-text">
+                        <h2>Bien hecho!</h2>
+                        <p>Haz completado el primera leccion del curso de <strong>Calculo de volumenes</strong>. ¿Estás preparado para continuar a la siguiente lección?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button id="checkAnswerBtn">Empezar <i class="fa-solid fa-arrow-right"></i></button>
+            </div>             
+        </div>
+    </main>
+
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>

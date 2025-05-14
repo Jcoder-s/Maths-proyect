@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number 3</title>
+    <link rel="stylesheet" href="shapes.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@1000&family=Allura&family=Anton&family=Archivo+Black&family=Audiowide&family=Bebas+Neue&family=Boldonse&family=Fjalla+One&family=Great+Vibes&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Markazi+Text:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+AR:wght@100..400&family=Playwrite+AU+TAS:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <section class="principal-section-container">
+    
+        <div class="side-nav-container">
+            <i class="fa-solid fa-arrow-right-arrow-left" onclick="toggleSidebarText()"></i>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-house"></i>
+                        <h2 class="side-nav-icons-text">Inicio</h2>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-book-open"></i>
+                        <h2 class="side-nav-icons-text">Leer</h2>
+                    </li>
+                    <li onclick="deployBoard()">
+                        <i class="fa-solid fa-chalkboard-user"></i> 
+                        <h2 class="side-nav-icons-text">Pizarra</h2>
+                    </li>
+                </ul>
+        </div>
+
+    <main class="principal-container">
+
+        <div class="userTools">
+            <div class="chalkBoard">
+              <i class="fa-solid fa-xmark" onclick="closeBoard()"></i>
+          
+              <canvas id="chalkCanvas"></canvas> <!-- ✅ Aquí solo va el canvas -->
+          
+              <button id="cleanCanvas" onclick="cleanCanvas()">
+                <i class="fa-solid fa-eraser" onclick="deployHints()"></i>
+              </button>
+            </div>
+        </div>
+
+          <div class="hints" onclick="deployHints()">
+            <i class="fa-solid fa-lightbulb"></i>
+                <ul class="course-hints-container">
+                    <li id="hint1">?</li>
+                    <li id="hint2">?</li>
+                    <li id="hint3">?</li>
+                    <li id="hint4">
+                        V = π r² h
+                    </li>
+                    <li id="hint5">?</li>
+                    <li id="hint6">?</li>
+                    <li id="hint7">
+                        V = L * L * L
+                    </li>
+                </ul>
+          </div>
+          
+
+        <div class="content">
+            <div class="feedback-image" style="display:none; text-align:center; margin-top: 20px;">
+                <img id="feedback-img" src="" alt="Feedback" style="max-height: 120px;">
+            </div>
+            
+            <div class="progress-bar" id="progressBar">
+                <span id="drawProgress"></span>
+            </div>
+
+            <div class="exercises-container">
+                <div id="container1"  class="activeSection">
+                    <div class="title">
+                        <h2 class="hola">Cuantos dolares seran necesarios para llenar este tanque de combustible</h2>
+                    </div>
+                    <div class="exercise-content">
+                        <img src="https://images.vexels.com/media/users/3/151307/isolated/preview/b4b009c6c791f8dced461e75c11cec60-ilustraci--n-del-tanque-de-gasolina-by-vexels.png" alt="">
+                        <div class="text">
+                            <div class="dimensiones">
+                                <h3>Dimensiones:</h3>
+                                <p>a = 18cm</p>
+                                <p>l = 30cm</p>
+                                <p>h = 45cm</p>
+                            </div>
+                            <div class="price">
+                                <h3>Precio:</h3>
+                                <p>$1 litro</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="answers-container">
+                        <input type="number" id="numberOfLiters">
+                    </div>
+                </div>
+
+                <div id="container2">
+                    <div class="title">
+                        <h2>Si la nave necesita recorrer 125km y consume 4.5 litros de combustible por cada 10 kilometros, Cuales deben ser las dimensiones del tanque</h2>
+                    </div>
+                    <div class="exercise-content">
+                        <img src="Platillo volador.png" alt="">
+                    </div>
+                    <div class="answers-container">
+                        <input type="submit" value="57.84dm³" class="option">
+                        <input type="submit" value="62.54dm³" class="option">
+                        <input type="submit" value="56.25dm³" class="option">
+                        <input type="submit" value="45dm³" class="option">
+                    </div>
+                </div>
+
+                <div id="container3">
+                    <div class="title">
+                        <h2>Si un contenedor almacena 30 dados de 1.5cm³ que dimensiones tiene que tener este contenedor</h2>
+                    </div>
+                    <div class="exercise-content">
+                        <img src="https://th.bing.com/th/id/OIP.a6ssYKrrrTZLk5ugZ-mBPgHaFl?rs=1&pid=ImgDetMain" alt="">
+                    </div>
+                    <div class="answers-container">
+                        <input type="submit" value="60cm³" class="option">
+                        <input type="submit" value="30cm³" class="option">
+                        <input type="submit" value="45cm³" class="option">
+                    </div>
+                </div>
+
+                <div id="container4">
+                    <div class="title">
+                        <h2>Si este cubo contiene una pirámide que tiene 1/3 de su altura y su misma base, ¿Qué volumen tiene disponible el cubo?</h2>
+                    </div>
+                    <div class="exercise-content">
+                        <img src="Cubo de bordes.png" alt="">
+                        <div class="text">
+                            <h2>L = 18cm</h2>
+                        </div>
+                    </div>
+                    <div class="answers-container">
+                        <input type="submit" value="4.87dm³" class="option">
+                        <input type="submit" value="5.18dm³" class="option">
+                        <input type="submit" value="5.30dm³" class="option">
+                        <input type="submit" value="4.85dm³" class="option">
+                    </div>
+                </div>
+
+                <div id="container5">
+                    <div class="title">
+                        <h2>Modifica la altura del cuerpo goemtrico para alcanzar los 1500cm³</h2>
+                    </div>
+                    <div class="exercise-content">
+                        <div class="editable-img">
+                            <div id="resizer"></div>
+                        </div>
+                        <div class="text">
+                            <p>h = <span class="editable-height">5</span>cm</p>
+                            <p>a = 10cm</p>
+                            <p>l = 5cm</p>
+                        </div>
+                    </div>
+                    <div class="equivalence">
+                        <p class="actual"><span class="shape-volume"></span>cm³</p>
+                        <span>=</span>
+                        <p class="needed">1500 cm³</p>
+                    </div>
+                </div>
+
+                <div id="container6">
+                    <div class="title">
+                        <h2>Modifica las dimensiones del cuerpo  para que pueda alamcenar 7 lapices</h2>
+                    </div>
+                    <div class="exercise-content">
+                        <img src="../Chanllenge/ortoedro.png" alt="cilindro">
+
+                        <div class="selected-options-container">
+                            <span class="value value1"></span> <span class="value value2"></span> <span class="value value3"></span> = <span class="result"></span>
+                        </div>
+                    </div>
+
+                    <div class="answer-container">
+                        <input type="submit" value="3" class="option">
+                        <input type="submit" value="5" class="option">
+                        <input type="submit" value="4" class="option">
+                        <input type="submit" value="2" class="option">
+                        <input type="submit" value="7" class="option">
+                        <input type="submit" value="8" class="option">
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="button-container">
+                <button onclick="check()" id="continueBtn">Comprobar</button>
+            </div>
+
+            <div id="final-summary" style="display: none; text-align: center;">
+                <h2>¡Completaste el quiz!</h2>
+                <p id="correct-count-text"></p>
+            </div>              
+        </div>
+    </main>
+    </section>
+
+    <script src="shapes.js"></script>
+    <script src="../Nueva carpeta/app.js"></script>
+</body>
+</html>

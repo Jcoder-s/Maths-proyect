@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicas - Maths</title>
+    <link rel="stylesheet" href="course-history.css">
+    <link rel="stylesheet" href="../Nueva carpeta/startLesson.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@1000&family=Allura&family=Anton&family=Archivo+Black&family=Audiowide&family=Bebas+Neue&family=Boldonse&family=Fjalla+One&family=Great+Vibes&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Markazi+Text:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+AR:wght@100..400&family=Playwrite+AU+TAS:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <section class="principal-section-container">
+    
+        <div class="side-nav-container">
+            <i class="fa-solid fa-arrow-right-arrow-left" onclick="toggleSidebarText()"></i>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-house"></i>
+                        <h2 class="side-nav-icons-text">Inicio</h2>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-book-open"></i>
+                        <h2 class="side-nav-icons-text">Leer</h2>
+                    </li>
+                    <li onclick="deployBoard()">
+                        <i class="fa-solid fa-chalkboard-user"></i> 
+                        <h2 class="side-nav-icons-text">Pizarra</h2>
+                    </li>
+                </ul>
+        </div>
+
+    <main class="principal-container">
+
+        <div class="userTools">
+            <div class="chalkBoard">
+              <i class="fa-solid fa-xmark" onclick="closeBoard()"></i>
+          
+              <canvas id="chalkCanvas"></canvas> <!-- ✅ Aquí solo va el canvas -->
+          
+              <button id="cleanCanvas" onclick="cleanCanvas()">
+                <i class="fa-solid fa-eraser" onclick="deployHints()"></i>
+              </button>
+            </div>
+        </div>
+
+          <div class="hints" onclick="deployHints()">
+            <i class="fa-solid fa-lightbulb"></i>
+                <ul class="course-hints-container">
+                    <li id="hint1">?</li>
+                    <li id="hint2">?</li>
+                    <li id="hint3">?</li>
+                    <li id="hint4">
+                        V = π r² h
+                    </li>
+                    <li id="hint5">?</li>
+                    <li id="hint6">?</li>
+                    <li id="hint7">
+                        V = L * L * L
+                    </li>
+                </ul>
+          </div>
+          
+
+        <div class="content">
+            <div class="feedback-image" style="display:none; text-align:center; margin-top: 20px;">
+                <img id="feedback-img" src="" alt="Feedback" style="max-height: 120px;">
+            </div>
+
+            
+            <div class="progress-bar" id="progressBar">
+                <span id="drawProgress"></span>
+            </div>
+
+            <div class="exercises-container">
+                <div class="welcome activeSection" id="container1">
+                    <h2>Bienvenido <br> ¿Cómo te llamas?</h2>
+                    <input type="text" id="userName" placeholder="Solo tu nombre" autocomplete="off">
+                </div>
+                <div class="presentation section" id="container2">
+                    <img src="detective.png" alt="">
+                    <div class="text">
+                        <p>Mi nombre es <span class="detectiveName"></span>, soy el agente investigativo encargado de resolver este caso.</p>
+                    </div>
+                </div>
+                <div id="container3" class="mistery1">
+                    <img src="fabrica.png" alt="">
+                    <div class="text">
+                        <p>En una fabrica de vino se reporto un robo. El dueño de la fabrica cuenta que se han robado <strong>8 litros</strong> de vino de uno de los tanques de la fabrica. El dueño dice que llegó a ver como el ladrón envasaba el vino en un contenedor y que debido a que el ladrón habia sido visto dejó el envase y salió corriendo dejando el paquete en el suelo.</p>
+                    </div>
+                </div>
+                <div id="container4" class="mistery1-solution">
+                    <div class="text">
+                        <p>Detective <span class="detectiveName"></span> ayudanos a encontrar el contenedor que puede almacenar 8 litros.</p>
+                    </div>
+                    <div class="images-container">
+                        <div class="mistery1-answer">
+                            <img src="https://static.vecteezy.com/system/resources/previews/035/559/189/original/farm-metal-milk-can-cartoon-illustration-vector.jpg" alt="">
+                            <p>r = 4cm</p>
+                            <p>h = 159.2</p>
+                            <input type="submit" value="A" class="option">
+                        </div>
+                        <div class="mistery1-answer">
+                            <img src="https://static.vecteezy.com/system/resources/previews/035/559/189/original/farm-metal-milk-can-cartoon-illustration-vector.jpg" alt="">
+                            <p> r = 4.3</p>
+                            <p> h = 170</p>
+                            <input type="submit" value="B" class="option">
+                        </div>
+                        <div class="mistery1-answer">
+                            <img src="https://static.vecteezy.com/system/resources/previews/035/559/189/original/farm-metal-milk-can-cartoon-illustration-vector.jpg" alt="">
+                            <p> r = 5</p>
+                            <p> h = 80.7</p>
+                            <input type="submit" value="C" class="option">
+                        </div>
+                    </div>
+                </div>
+                <div id="container5" class="conector">
+                    <img src="https://th.bing.com/th/id/OIP.SJWu4E_XEmRszPbM5U2jwQHaHa?rs=1&pid=ImgDetMain" alt="">
+                    <div class="text">
+                        <p>Bien hecho! Gracias a que encontraste el contenedor correcto pudimos descubrir las huellas del ladrón plasmadas en el envase. Ahora necesitamos volver a la compañía para buscar la huellas digitales del ladrón en la base de datos.</p>
+                    </div>
+                </div>
+                <div id="container6" class="problem2">
+                    <div class="problem-images">
+                        <img src="carrito.png" alt="">
+                        <img src="medidor.png" alt="">
+                    </div>
+                    <div class="text">
+                        <p>Ups! el tanque de combustible está muy bajo y no podremos llegar con esta cantidad de combustible. Por suerte cerca de nosotros hay una estación de gasolina. Debemos calcular el volumen de gasolina que puede alamcenar el contenedor para enviar a un compañero en busca de combustible.</p>
+                    </div>
+                </div>
+                <div id="container7" class="problem2-solution">
+                    <div class="title">
+                        <h2>¿Cuántos litros puedo almacenar este contenedor?</h2>
+                    </div>
+                    <div class="problem2-solution-image-container">
+                        <img src="https://images.vexels.com/media/users/3/151307/isolated/preview/b4b009c6c791f8dced461e75c11cec60-ilustraci--n-del-tanque-de-gasolina-by-vexels.png" alt="">
+                        <div class="information">
+                            <h3>h = 32cm</h3>
+                            <h3>L = 25cm</h3>
+                            <h3>a = 15cm</h3>
+                        </div>
+                    </div>
+                    <div class="problem2-answers">
+                        <input type="submit" value="12L" class="send">
+                        <input type="submit" value="8L" class="send">
+                        <input type="submit" value="9L" class="send">
+                    </div>
+                </div>
+                <div id="container8" class="congratulations">
+                    <div class="text congratulations-text">
+                        <h2>Felicitaciones!</h2>
+                        <p>Has resuelto el caso y has solucionado los imprevistos. Ahora podemos descubrir quién fue el culpable del robo. Bien hecho detective.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button id="continueBtn">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div id="final-summary" style="display: none; text-align: center;">
+                <h2>¡Completaste el quiz!</h2>
+                <p id="correct-count-text"></p>
+              </div>              
+        </div>
+    </main>
+
+    </section>
+    <script src="course-history.js"></script>
+    <script src="../Nueva carpeta/app.js"></script>
+</body>
+</html>
+

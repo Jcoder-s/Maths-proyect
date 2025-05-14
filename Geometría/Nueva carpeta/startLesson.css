@@ -1,0 +1,57 @@
+.start-section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 100;
+    transition: all ease 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.start-section h1{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.start-section button{
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 10px 40px;
+    border: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin-top: 65px;
+    border-radius: 100px;
+}
+.start-section p{
+    font-size: 1.2rem;
+}
+.start-section button:hover{
+    background-color: #252525;
+    cursor: pointer;
+}
+
+.max-width-start-section{
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    animation: goUp 1.2s ease;
+}
+
+@keyframes goUp {
+    0%{
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

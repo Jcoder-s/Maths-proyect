@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicas - Maths</title>
+    <link rel="stylesheet" href="course.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@1000&family=Allura&family=Anton&family=Archivo+Black&family=Audiowide&family=Bebas+Neue&family=Boldonse&family=Fjalla+One&family=Great+Vibes&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Markazi+Text:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+AR:wght@100..400&family=Playwrite+AU+TAS:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../Nueva carpeta/startLesson.css">
+</head>
+<body>
+
+    <section class="principal-section-container">
+    
+        <div class="side-nav-container">
+            <i class="fa-solid fa-arrow-right-arrow-left" onclick="toggleSidebarText()"></i>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-house"></i>
+                        <h2 class="side-nav-icons-text">Inicio</h2>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-book-open"></i>
+                        <h2 class="side-nav-icons-text">Leer</h2>
+                    </li>
+                    <li onclick="deployBoard()">
+                        <i class="fa-solid fa-chalkboard-user"></i> 
+                        <h2 class="side-nav-icons-text">Pizarra</h2>
+                    </li>
+                </ul>
+        </div>
+
+    <main class="principal-container">
+
+        <div class="userTools">
+            <div class="chalkBoard">
+              <i class="fa-solid fa-xmark" onclick="closeBoard()"></i>
+          
+              <canvas id="chalkCanvas"></canvas> <!-- ✅ Aquí solo va el canvas -->
+          
+              <button id="cleanCanvas" onclick="cleanCanvas()">
+                <i class="fa-solid fa-eraser"></i>
+              </button>
+            </div>
+        </div>
+
+          <div class="hints" onclick="deployHints()">
+            <i class="fa-solid fa-lightbulb"></i>
+                <ul class="course-hints-container">
+                    <li id="primero">
+                        V = π r² h
+                    </li>
+                    <li id="segundo">
+                        V = 4(π r³)/3
+                    </li>
+                    <li id="tercero">
+                        ?
+                    </li>
+                    <li id="cuarto">
+                        V = L³
+                    </li>
+                    <li id="quinto">
+                        1ml = 1cm³<br>
+                        V = L * L * L
+                    </li>
+                    <li id="empty"></li>
+                </ul>
+          </div>
+
+          
+          <div class="progress-bar" id="progressBar">
+             <span id="drawProgress"></span>
+          </div>
+          
+        <div class="content">
+            <a href="../Start-geometry-page/index.html"><i class="fa-solid fa-xmark" id="back-to-home-icon"></i></a>
+
+            <div class="feedback-image" style="display:none; text-align:center; margin-top: 20px;">
+                <img id="feedback-img" src="" alt="Feedback" style="max-height: 120px;">
+            </div>
+
+            <!--<div class="go-home-charger">
+                <span class="load-circle"><i class="fa-solid fa-house"></i></span>
+            </div>-->            
+
+            <div class="exercises-container">
+                
+                <div class="start-section">
+                   <div class="max-width-start-section">
+                       <h1>¡Bienvenido al quiz!</h1>
+                       <p>En este quiz, usaras los conocimientos de las formulas para calcular los volumenes de los cuerpos geometricos. ¡Buena suerte!</p>
+                       <button id="start-btn">Comenzar <i class="fa-solid fa-arrow-right"></i></button>
+                   </div>
+                </div>
+
+                <div id="exercise1" class="activeSection">
+                    <div class="title">
+                        <h2>1. ¿Cuál es el volumen de este cilindro?</h2>
+                    </div>
+                    <div class="exercise-main-content">
+                        <img src="Cilindro verde.png" alt="">
+                        <div class="text">
+                            <p>h = 8cm</p>
+                            <p>r = 3cm</p>
+                            <p> V = <span class="value">?</span></p>
+                        </div>
+                    </div>
+                    <div class="answers-container">
+                        <input type="submit" value="175" class="option">
+                        <input type="submit" value="226" class="option">
+                        <input type="submit" value="180" class="option">
+                        <input type="submit" value="205" class="option">
+                    </div>
+                </div>
+                <div id="exercise2">
+                    <div class="title">
+                        <h2>2. ¿Cuál es el volumen de esta esfera?</h2>
+                    </div>
+                    <div class="exercise-main-content">
+                        <img src="Esfera1.png" alt="">
+                        <div class="text">
+                            <p>r = 5cm</p>
+                            <p>V = <span class="value">?</span></p>
+                        </div>
+                    </div>
+                    <div class="answers-container">
+                        <input type="submit" value="523" class="option">
+                        <input type="submit" value="245" class="option">
+                        <input type="submit" value="480" class="option">
+                        <input type="submit" value="512" class="option">
+                    </div>
+                </div>
+                <div id="exercise3">
+                    <div class="title">
+                        <h2>3. ¿Cuáles elementos faltan?</h2>
+                    </div>
+                    <div class="exercise-main-content">
+                        <img src="Cilindro verde.png" alt="">
+                        <div class="text">
+                            <p>V = π ·<span id="span1"></span>·<span id="span2"></span><p>
+                        </div>
+                    </div>
+                    <div class="answers-container">
+                        <input type="submit" value="radio²" class="option">
+                        <input type="submit" value="altura" class="option">
+                        <input type="submit" value="generatriz" class="option">
+                    </div>
+                </div>
+                <div id="exercise4">
+                    <div class="title">
+                        <h2>4. Calcula el volumen del cubo</h2>
+                    </div>
+                    <div class="exercise-main-content">
+                        <img src="../Chanllenge/cubo.png" alt="">
+                        <div class="tex">
+                            <p>L = 5cm</p>
+                            <p>V = <span class="value">?</span></p>
+                        </div>
+                    </div>
+                    <div class="answers-container">
+                        <input type="submit" value="125" class="option">
+                        <input type="submit" value="122" class="option">
+                        <input type="submit" value="25" class="option">
+                        <input type="submit" value="85" class="option">
+                    </div>
+                </div>
+                <div id="exercise5">
+                    <div class="title">
+                        <h2>5. ¿Cuántos mililitros necesita este ortoedro para llenarse?</h2>
+                    </div>
+                    <div class="exercise-main-content">
+                        <div class="ortoedro">
+                            <span class="water"></span>
+                        </div>
+                        <div class="text">
+                            <p>a = 5cm</p>
+                            <p>L = 5cm</p>
+                            <p>h = 15cm</p>
+                        </div>
+                    </div>
+                    <div class="answers-container">
+                        <input type="number" id="liters">
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button onclick="check()" id="checkAnswerBtn">Comprobar</button>
+            </div>
+
+            <div id="final-summary" style="display: none; text-align: center;">
+                <h2>¡Completaste el quiz!</h2>
+                <p id="correct-count-text"></p>
+              </div>              
+        </div>
+    </main>
+
+    </section>
+    <script src="course.js"></script>
+    <script src="../Nueva carpeta/app.js"></script>
+</body>
+</html>
+
